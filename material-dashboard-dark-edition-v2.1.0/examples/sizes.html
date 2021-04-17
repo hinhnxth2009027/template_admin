@@ -74,18 +74,6 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="./sizes.html">
-                        <i class="material-icons">content_paste</i>
-                        <p>Sizes</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="./options.html">
-                        <i class="material-icons">content_paste</i>
-                        <p>Options</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
                     <a class="nav-link" href="./typography.html">
                         <i class="material-icons">library_books</i>
                         <p>Typography</p>
@@ -187,7 +175,7 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title">Products</h4>
+                                <h4 class="card-title">Sizes</h4>
                                 <p class="card-category">Complete your profile</p>
                             </div>
                             <div class="card-body">
@@ -201,31 +189,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Price</label>
-                                                <input type="text" name="price" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating">Description</label>
-                                                <input type="text" name="description" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="mr-3 bmd-label-floating">Category</label>
-                                                <label class="bmd-label-floating">
-                                                        <div class="border-bottom ptselect">
-                                                        <select style="width: 100%;" class="pt_select" name="" id="">
-                                                            <option class="ptoption" value="">ao</option>
-                                                            <option class="ptoption" value="">quan</option>
-                                                            <option class="ptoption" value="">vay</option>
-                                                            <option class="ptoption" value="">quan khong day hahah</option>
-                                                        </select>
-                                                    </div>
-                                                </label>
+                                                <label class="bmd-label-floating">Sort Number</label>
+                                                <input type="text" name="sort_number" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -245,7 +210,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary pull-right d-block">New Products</button>
+                                    <button type="submit" class="btn btn-primary pull-right d-block">New Sizes</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -406,7 +371,6 @@
 <script src="../assets/demo/demo.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
-<script src="../assets/demo/demoValidate.js" type="text/javascript"></script>
 <script>
     var imageURL2 = document.querySelector('input[name="photo"]')
     const cloudName1 = 'ddmgbaegq';
@@ -439,6 +403,25 @@
         ud.append('file', file)
         xhr.send(ud)
     }
+
+    $(function () {
+        $('#demoFormProducts').validate({
+            rules: {
+                name: {
+                    required: true,
+                    maxlength: 255,
+                }
+            },
+            messages: {
+                name: {
+                    required: 'Please enter product name',
+                    maxlength: 'Name is limited to 255 characters',
+                }
+            },
+        });
+    })
+
+
     // $(document).ready(function () {
     //     $().ready(function () {
     //         $sidebar = $('.sidebar');
