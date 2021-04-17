@@ -34,6 +34,10 @@
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
 }
 
+.error {
+    color: red;
+}
+
 /* Modal Content (image) */
 .modal-content {
     margin: auto;

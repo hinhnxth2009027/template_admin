@@ -170,94 +170,38 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-7" style="margin: auto">
                         <div class="card">
                             <div class="card-header card-header-primary">
                                 <h3 class="card-title ">List Category</h3>
                                 <p class="card-category"> Here is a subtitle for this table</p>
                             </div>
                             <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead class=" text-primary">
-                                        <th>
-                                            <h3>Category ID</h3>
-                                        </th>
-                                        <th>
-                                            <h3>Name</h3>
-                                        </th>
-                                        <th>
-                                            <h3>Icon</h3>
-                                        </th>
-                                        <th>
-                                            <h3>Sort Oder</h3>
-                                        </th>
-                                        <th>
-                                            <h3>Edit</h3>
-                                        </th>
 
-                                        </thead>
-                                        <tbody>
-
-                                        <tr>
-                                            <td>
-                                                <h4>1</h4>
-                                            </td>
-                                            <td>
-                                                <h4>Áo</h4>
-                                            </td>
-                                            <td>
-                                                <h4>đây là icon</h4>
-                                            </td>
-                                            <td>
-                                                <h4>đây là sort oder</h4>
-                                            </td>
-                                            <td>
-                                                <a href=""><button class="btn btn-danger">Delete</button></a>
-                                                <a href=""><button class="btn btn-success">Edit</button></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4>3</h4>
-                                            </td>
-                                            <td>
-                                                <h4>Quần</h4>
-                                            </td>
-                                            <td>
-                                                <h4>đây là icon</h4>
-                                            </td>
-                                            <td>
-                                                <h4>đây là sort oder</h4>
-                                            </td>
-                                            <td>
-                                                <a href=""><button class="btn btn-danger">Delete</button></a>
-                                                <a href=""><button class="btn btn-success">Edit</button></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h4>2</h4>
-                                            </td>
-                                            <td>
-                                                <h4>Què</h4>
-                                            </td>
-                                            <td>
-                                                <h4>đây là icon</h4>
-                                            </td>
-                                            <td>
-                                                <h4>đây là sort oder</h4>
-                                            </td>
-                                            <td>
-                                                <a href=""><button class="btn btn-danger">Delete</button></a>
-                                                <a href=""><button class="btn btn-success">Edit</button></a>
-                                            </td>
-                                        </tr>
-
-                                        </tbody>
-
-                                    </table>
-                                </div>
+                                    <form method="post" id="formCatagory">
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Name</label>
+                                                    <input type="text" name="name" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Sort order</label>
+                                                    <input type="text" name="sortOrder" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-10">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">Icon</label>
+                                                    <input type="text" name="icon" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                                        <div class="clearfix"></div>
+                                    </form>
                             </div>
                         </div>
                     </div>
@@ -403,7 +347,8 @@
 <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
 
 <script src="https://unpkg.com/default-passive-events"></script>
-<script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+<script src="../material-dashboard-dark-edition-v2.1.0/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!--  Google Maps Plugin    -->
@@ -416,8 +361,49 @@
 <script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/demo/demo.js"></script>
+
 <script>
-    $(document).ready(function () {
+
+</script>
+
+<script>
+
+    $(function (){
+        $('#formCatagory').validate({
+            rules: {
+                name: {
+                    required: true,
+                    maxLength: 255
+                },
+                sortOrder: {
+                    required: true,
+                    maxLength: 255,
+                },
+                icon: {
+                    required: true,
+                },
+            },
+            messages: {
+                name: {
+                    required: 'Please enter your name',
+                    maxlength: 'Name is limited to 255 characters',
+                },
+                sortOrder: {
+                    required: 'Please enter sort order',
+                    maxLength: 'Sort order is limiter to 255 characters',
+                },
+                icon: {
+                    required: 'Please choose the icon you like',
+                },
+            },
+        });
+    })
+
+
+
+
+
+
         $().ready(function () {
             $sidebar = $('.sidebar');
 
@@ -576,7 +562,6 @@
 
             });
         });
-    });
 </script>
 </body>
 
