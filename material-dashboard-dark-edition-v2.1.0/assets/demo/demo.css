@@ -1,3 +1,59 @@
+label.error {
+  color: red !important;
+  font-size: 12px!important;
+}
+/*********************SELECT OPTION*********************/
+.pt_select {
+  -webkit-appearance: revert !important;
+}
+
+select option {
+  margin: 40px;
+  border: 0!important;
+  background: #202940;
+  color: #a9afbbd1;
+}
+
+div.ptselect {
+  border-bottom: 1px solid #2d354a!important;
+}
+
+select {
+  color: #a9afbbd1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+
+  background: #202940;
+  flex: 1;
+  cursor: pointer;
+}
+div.select {
+
+}
+
+.select:hover::after {
+  color: Gainsboro;
+}
+
+.pt-wrap-plus {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 .tim-typo {
   padding-left: 25%;
   margin-bottom: 40px;

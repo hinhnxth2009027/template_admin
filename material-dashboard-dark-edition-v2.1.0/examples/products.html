@@ -175,49 +175,52 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="card-header card-header-primary">
-                                <h4 class="card-title">Edit Profile</h4>
+                                <h4 class="card-title">Products</h4>
                                 <p class="card-category">Complete your profile</p>
                             </div>
                             <div class="card-body">
-                                <form method="" id="demoForm" action="">
+                                <form id="demoFormProducts" action="">
                                     <div class="row">
-                                        <!--                      <div class="col-md-5">-->
-                                        <!--                        <div class="form-group">-->
-                                        <!--                          <label class="bmd-label-floating">Company (disabled)</label>-->
-                                        <!--                          <input type="text" class="form-control" disabled>-->
-                                        <!--                        </div>-->
-                                        <!--                      </div>-->
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Username</label>
-                                                <input type="text" name="ptusername" class="form-control">
+                                                <label class="bmd-label-floating">Name</label>
+                                                <input type="text" name="name" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Password</label>
-                                                <input type="password" name="ptpwd" class="form-control">
+                                                <label class="bmd-label-floating">Price</label>
+                                                <input type="text" name="price" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Email Address</label>
-                                                <input type="email" name="ptemail" class="form-control">
+                                                <label class="bmd-label-floating">Description</label>
+                                                <input type="text" name="description" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating"></label>
-                                                <input type="date" name="ptdate" class="text-muted form-control">
+                                                <label class="mr-3 bmd-label-floating">Category</label>
+                                                <label class="bmd-label-floating">
+                                                        <div class="border-bottom ptselect">
+                                                        <select style="width: 100%;" class="pt_select" name="" id="">
+                                                            <option class="ptoption" value="">ao</option>
+                                                            <option class="ptoption" value="">quan</option>
+                                                            <option class="ptoption" value="">vay</option>
+                                                            <option class="ptoption" value="">quan khong day hahah</option>
+                                                        </select>
+                                                    </div>
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group">
-                                                <div class="text-muted">Avatar</div>
+                                                <div class="text-muted">Images</div>
                                                 <input style="display: none" type="file" id="myFileInput">
                                                 <input type="hidden" name="values">
                                                 <div class="d-flex pt-cr-img pt-wrap-plus border-success" onclick="document.getElementById('myFileInput').click();">
@@ -389,43 +392,7 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
 <script src="../assets/demo/demoValidate.js" type="text/javascript"></script>
 <script>
-    $(function () {
-        $('#demoForm').validate({
-            rules: {
-                ptusername: {
-                    required: true,
-                    maxlength: 255,
-                },
-                ptpwd: {
-                    required: true,
-                    minlength: 6
-                },
-                ptemail: {
-                    required: true,
-                    email: true
-                },
-                ptdate: {
-                    required:true
-                }
-            },
-            messages: {
-                ptusername: {
-                    required: 'Please enter name',
-                    maxlength: 'Name is limited to 255 characters',
-                },
-                ptpwd: {
-                    required: 'Please enter password',
-                    maxlength: 'Please enter at least 6 characters',
-                },
-                ptemail: {
-                    required: 'This field is required',
-                },
-                ptdate: {
-                    required: 'Please enter date',
-                },
-            },
-        });
-    })
+
     // $(document).ready(function () {
     //     $().ready(function () {
     //         $sidebar = $('.sidebar');
