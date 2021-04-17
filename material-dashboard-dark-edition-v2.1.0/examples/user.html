@@ -215,19 +215,24 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md">
                                             <div class="form-group">
                                                 <div class="text-muted">Avatar</div>
-                                                <input style="display: none" type="file" id="myFileInput">
-                                                <input type="hidden" name="values">
-                                                <div class="d-flex pt-cr-img pt-wrap-plus border-success" onclick="document.getElementById('myFileInput').click();">
-                                                    <div class="pt-plus">+</div>
+                                                <div class="d-flex">
+                                                    <input style="display: none" type="file" name="avatar_file" id="myFileInput">
+                                                    <input type="hidden" name="user_avatar">
+                                                    <div class="d-flex mr-3 pt-cr-img pt-wrap-plus border-success" onclick="document.getElementById('myFileInput').click();">
+                                                        <div class="pt-plus">+</div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <img id="image-preview" src="" class="img_show d-none" style="width: 100px;height: 100px;border: #a9afbbd1 2px solid;border-radius:5px">
+                                                    </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
                                     <button type="submit" class="back_to_profile btn btn-primary pull-right">Update Profile</button>
-                                    <div class="clearfix"></div>
                                 </form>
                             </div>
                         </div>
@@ -388,45 +393,45 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
 <script src="../assets/demo/demoValidate.js" type="text/javascript"></script>
-<script src="assets/demo/editUser.js"></script>
 <script>
-    $(function () {
-        $('#demoForm').validate({
-            rules: {
-                ptusername: {
-                    required: true,
-                    maxlength: 255,
-                },
-                ptpwd: {
-                    required: true,
-                    minlength: 6
-                },
-                ptemail: {
-                    required: true,
-                    email: true
-                },
-                ptdate: {
-                    required:true
+
+    var back_to_profile = document.querySelector('.back_to_profile')
+    const imgurl = document.querySelector('input[name="user_avatar"]')
+    const cloudName = 'ddmgbaegq';
+    const unsignedUploadPreset = 'hrn13yyl';
+    const img = document.querySelector('[name="avatar_file"]');
+
+    img.onchange = function () {
+
+        var file = this.files[0];
+        var url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    var dataJson = JSON.parse(this.responseText)
+                    imgurl.value = dataJson.url
+                    alert(imgurl.value);
+                    var img_review = document.getElementById('image-preview');
+                    img_review.src = dataJson.url;
+                    img_review.classList.remove('d-none');
                 }
-            },
-            messages: {
-                ptusername: {
-                    required: 'Please enter name',
-                    maxlength: 'Name is limited to 255 characters',
-                },
-                ptpwd: {
-                    required: 'Please enter password',
-                    maxlength: 'Please enter at least 6 characters',
-                },
-                ptemail: {
-                    required: 'This field is required',
-                },
-                ptdate: {
-                    required: 'Please enter date',
-                },
-            },
-        });
-    })
+            }
+        }
+        xhr.open('POST', url, true);
+        var ud = new FormData();
+        ud.append('upload_preset', unsignedUploadPreset);
+        ud.append('tags', 'browser_upload')
+        ud.append('file', file)
+        xhr.send(ud)
+    }
+
+    back_to_profile.onclick = function (){
+        window.location.href = location.protocol+"/profile";
+    }
+
     // $(document).ready(function () {
     //     $().ready(function () {
     //         $sidebar = $('.sidebar');

@@ -218,18 +218,22 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-2">
+                                        <div class="col-md">
                                             <div class="form-group">
                                                 <div class="text-muted">Images</div>
-                                                <input style="display: none" type="file" id="myFileInput">
-                                                <input type="hidden" name="values">
-                                                <div class="d-flex pt-cr-img pt-wrap-plus border-success" onclick="document.getElementById('myFileInput').click();">
-                                                    <div class="pt-plus">+</div>
+                                                <input style="display: none; width: 100px" type="file" name="list_photo" id="myFileInput">
+                                                <input type="hidden" name="photo">
+                                                <div class="d-flex" style="height: min-content">
+                                                    <div class="d-flex mr-3 pt-cr-img pt-wrap-plus border-success" onclick="document.getElementById('myFileInput').click();">
+                                                        <div class="pt-plus">+</div>
+                                                    </div>
+                                                    <div id="image-view" class="d-flex d-fl-wrap">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary pull-right">Update Profile</button>
+                                    <button type="submit" class="btn btn-primary pull-right d-block">New Products</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -392,7 +396,37 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js" type="text/javascript"></script>
 <script src="../assets/demo/demoValidate.js" type="text/javascript"></script>
 <script>
-
+    var imageURL2 = document.querySelector('input[name="photo"]')
+    const cloudName1 = 'ddmgbaegq';
+    const unsignedUploadPreset1 = 'hrn13yyl';
+    var img2 = document.querySelector('input[name=list_photo]');
+    img2.onchange = function () {
+        var file = this.files[0];
+        var url = `https://api.cloudinary.com/v1_1/${cloudName1}/upload`
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4) {
+                if (this.status === 200) {
+                    var dataJson = JSON.parse(this.responseText)
+                    imageURL2.value += `${dataJson.url + ','},`
+                    // var split_img_array = imageURL2.value
+                    //
+                    // var split_img = split_img_array.split(",");
+                    // for (var i = 0 ;i<split_img.length-1;i++){
+                    //     console.log( 'day la img thu '+ i +split_img[i])
+                    // }
+                    var img_review = document.getElementById('image-view');
+                    img_review.innerHTML += `<div class="mr-3 mb-3" style="height: 100px; width: 100px;border: #a9afbbd1 2px solid;border-radius: 5px"><img src="${dataJson.url}" style="height: 100%"></div>`
+                }
+            }
+        }
+        xhr.open('POST', url, true);
+        var ud = new FormData();
+        ud.append('upload_preset', unsignedUploadPreset1);
+        ud.append('tags', 'browser_upload')
+        ud.append('file', file)
+        xhr.send(ud)
+    }
     // $(document).ready(function () {
     //     $().ready(function () {
     //         $sidebar = $('.sidebar');

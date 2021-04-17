@@ -41,9 +41,12 @@ div.select {
 }
 
 .pt-wrap-plus {
+  border: #a9afbbd1 solid 1px !important;
   cursor: pointer;
 }
-
+.d-fl-wrap {
+  flex-wrap: wrap !important;
+}
 
 
 
