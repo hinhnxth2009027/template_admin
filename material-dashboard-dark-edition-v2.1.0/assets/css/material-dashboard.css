@@ -36,6 +36,8 @@ html {
   width: device-width;
 }
 
+
+
 article,
 aside,
 dialog,
@@ -49,6 +51,7 @@ nav,
 section {
   display: block;
 }
+
 
 body {
   margin: 0;
@@ -65,11 +68,25 @@ body {
   outline: 0 !important;
 }
 
+
+
+
+
+
+
 hr {
   box-sizing: content-box;
   height: 0;
   overflow: visible;
 }
+
+
+
+
+
+
+
+
 
 h1,
 h2,
