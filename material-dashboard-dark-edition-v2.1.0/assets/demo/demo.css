@@ -104,9 +104,6 @@
   }
 }
 
-
-
-
 #map {
   z-index: 2;
   height: calc(100vh - 70px);
@@ -124,3 +121,56 @@
 .bd-docs.dark-edition {
   background-color: #fff;
 }
+
+.text-center-1 {
+  font-size: 200%;
+  color: #9c27b0;
+}
+
+.card-body-1 {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.card-1 {
+  width: 35%;
+  margin-left: 35%;
+  padding: 2% 0;
+}
+
+.card-1 i {
+  cursor: pointer;
+}
+
+.errorMsg {
+  color: red;
+}
+
+.error {
+  color: red !important;
+}
+
+.color-1:hover {
+  color: #2c8aff;
+  zoom: 260%;
+}
+.color-2:hover {
+  color: #ff8400;
+  zoom: 260%;
+}
+.color-3:hover {
+  color: #2cc3ff;
+  zoom: 260%;
+}
+.color-4:hover {
+  color: #0297fa;
+  zoom: 260%;
+}
+.color-5:hover {
+  color: #ee1111;
+  zoom: 260%;
+}
+
+
+
+
