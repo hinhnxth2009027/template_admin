@@ -35,41 +35,5 @@ $(function () {
         },
     });
 })
-$(function () {
-    $('#demoFormProducts').validate({
-        rules: {
-            name: {
-                required: true,
-                maxlength: 255,
-            },
-            price: {
-                required: true,
-                number: true
-            },
-            description: {
-                required: true,
-                email: true
-            },
-            ptdate: {
-                required:true
-            }
-        },
-        messages: {
-            ptusername: {
-                required: 'Please enter product name',
-                maxlength: 'Name is limited to 255 characters',
-            },
-            price: {
-                required: 'Please enter the money',
-                number: 'Please enter the number',
-            },
-            description: {
-                required: 'Please enter the description',
-            },
-            ptdate: {
-                required: 'Please enter date',
-            },
-        },
-    });
-})
+
 

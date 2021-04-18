@@ -14,6 +14,10 @@ select option {
   color: #a9afbbd1;
 }
 
+div.padding-bt {
+  padding-bottom: 5px!important;
+}
+
 div.ptselect {
   border-bottom: 1px solid #2d354a!important;
 }
@@ -47,8 +51,20 @@ div.select {
 .d-fl-wrap {
   flex-wrap: wrap !important;
 }
+div.wr-cr-img {
 
-
+  width: 25px!important;
+  height: 25px!important;
+}
+.cr-img {
+  font-size: 24px!important;
+}
+.bd-bt {
+  border-color: #a9afbbd1 !important;
+}
+input[type=text] {
+  color: #a9afbbd1 !important;
+}
 
 
 
