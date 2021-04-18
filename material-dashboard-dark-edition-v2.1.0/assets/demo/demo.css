@@ -149,3 +149,28 @@
 .error {
   color: red !important;
 }
+
+.color-1:hover {
+  color: #2c8aff;
+  zoom: 260%;
+}
+.color-2:hover {
+  color: #ff8400;
+  zoom: 260%;
+}
+.color-3:hover {
+  color: #2cc3ff;
+  zoom: 260%;
+}
+.color-4:hover {
+  color: #0297fa;
+  zoom: 260%;
+}
+.color-5:hover {
+  color: #ee1111;
+  zoom: 260%;
+}
+
+
+
+
